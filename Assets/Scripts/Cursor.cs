@@ -2,17 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+namespace uWintab
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public class Cursor : MonoBehaviour
     {
-        
+        [SerializeField]
+        Vector2 localScale = new Vector2(1.92f, 1.08f);
+
+        [SerializeField]
+        float hoverHeight = 0.1f;
+
+        Tablet tablet_;
+        float y_ = 0f;
+
+        void Start()
+        {
+            tablet_ = FindObjectOfType<Tablet>();
+        }
+
+        void Update()
+        {
+            UpdatePosition();
+            //UpdateRotation();
+        }
+
+        void UpdatePosition()
+        {
+            var x = (tablet_.x - 0.5f) * localScale.x;
+            var z = (tablet_.y - 0.5f) * localScale.y;
+            y_ = Mathf.Lerp(y_, (tablet_.proximity ? 0f : hoverHeight), 0.2f);
+            transform.localPosition = new Vector3(x, y_, z);
+        }
+
+        void UpdateRotation()
+        {
+            //var yaw = tablet_.azimuth * 360f;
+            //Pitch = Var(0.5F - Tablet_.Altitude) * 180F;
+            //var rot = Quaternion.Euler(pitch, yaw, 0f);
+            //transform.localRotation = Quaternion.FromToRotation(Vector3.up, rot * Vector3.up);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

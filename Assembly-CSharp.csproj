@@ -63,6 +63,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Cursor.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Argument.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Method.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Node.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\NodeListOptional.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\NumberArgument.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Ritual.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Shard.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Statement.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\TranslateSigil.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\Variable.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\AST\WaitSigil.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\Monos\ASTNodeMonoMethod.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\Monos\ASTNodeMonoRitual.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\Monos\ASTNodeMonoShard.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\Monos\ASTNodeMonoTranslateSigil.cs" />
+    <Compile Include="Assets\Scripts\Magic\Scripts\Monos\ASTNodeMonoWaitSigil.cs" />
+    <Compile Include="Assets\Scripts\RealStuffCalibrator.cs" />
+    <Compile Include="Assets\Scripts\SceneViewSwitcher.cs" />
+    <Compile Include="Assets\uWintab\Example\Scripts\Pen.cs" />
+    <Compile Include="Assets\uWintab\Example\Scripts\Pressure.cs" />
+    <Compile Include="Assets\uWintab\Example\Scripts\TabletInformation.cs" />
+    <Compile Include="Assets\uWintab\Scripts\Lib.cs" />
+    <Compile Include="Assets\uWintab\Scripts\Tablet.cs" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Fonts\Anonymous\Mark Simonson - Anonymous License.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/James/Documents/Code/WizardSimulator2k20/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -296,6 +338,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>C:/Users/James/Documents/Code/WizardSimulator2k20/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/James/Documents/Code/WizardSimulator2k20/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
@@ -657,6 +702,28 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SteamVR_Actions.csproj">
+      <Project>{D4D9761B-57AA-72A2-21B4-09B365D3525B}</Project>
+      <Name>SteamVR_Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Input_Editor.csproj">
+      <Project>{500ED958-3EDD-01DD-5D24-F692C9F2F3DB}</Project>
+      <Name>SteamVR_Input_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{7EA65EE2-D3C7-947E-EA49-DD31DFFD3275}</Project>
+      <Name>SteamVR_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{2BBC8159-AE5D-9BB4-0835-D6FA795280BD}</Project>
+      <Name>SteamVR</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
+      <Project>{16F1DCC8-76E9-EABE-B5B6-E168E7437791}</Project>
+      <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
