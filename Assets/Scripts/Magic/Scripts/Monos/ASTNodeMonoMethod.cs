@@ -2,10 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ASTNodeMonoMethod : MonoBehaviour
+public class ASTNodeMonoMethod : ASTNodeMono
 {
     //Method
     public Method method;
+
+    public override Method ContainingMethod()
+    {
+        return method;
+    }
+    public override Statement ContainingStatement()
+    {
+        return null;
+    }
 
     public void Initialize()
     {
@@ -15,7 +24,7 @@ public class ASTNodeMonoMethod : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(method == null)
+        if(method is null)
         {
             Initialize();
         }

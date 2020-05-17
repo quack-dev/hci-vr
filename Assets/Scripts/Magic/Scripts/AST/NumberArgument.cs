@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NumberArgument : Argument<float>
 {
@@ -18,5 +19,9 @@ public class NumberArgument : Argument<float>
     {
         input.text = value.ToString();
         Value = value;
+    }
+    public void Select()
+    {
+        EventSystem.current.SetSelectedGameObject(input.gameObject);
     }
 }

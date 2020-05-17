@@ -42,6 +42,32 @@ public class NodeListOptional<T> : Node
         Children.AddLast(node);
     }
 
+    public void AddFirst(T node)
+    {
+        node.SetParent(this);
+        Children.AddFirst(node);
+    }
+
+    public void RemoveNode(T node)
+    {
+        Children.Remove(node);
+        node.SetParent(null);
+        if (Parent is Method)
+        {
+            ((Method)Parent).UpdateStatementPosition();
+        }
+    }
+
+    public void AddAfterNode(T nodeRef, T newNode)
+    {
+        newNode.SetParent(this);
+        Children.AddAfter(Children.Find(nodeRef), newNode);
+        if (Parent is Method)
+        {
+            ((Method)Parent).UpdateStatementPosition();
+        }
+    }
+
     //Magix
     public bool InvokeLinear()
     {

@@ -1,0 +1,2 @@
+C:\Users\James\Documents\Code\WizardSimulator2k20\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\James\Documents\Code\WizardSimulator2k20\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

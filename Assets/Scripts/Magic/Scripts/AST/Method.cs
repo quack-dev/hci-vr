@@ -10,7 +10,6 @@ public class Method : Node
     //Buildup
     public Method(GameObject Model) : base(Model)
     {
-        nextStatementPosition = .052f;
         Statements.SetParent(this);
     }
 
@@ -32,13 +31,40 @@ public class Method : Node
         return receivingFromOwnBreak;
     }
 
-    float nextStatementPosition;
-    public void AcceptStatement(Statement s)
+    public void UpdateStatementPosition()
     {
+        float nextStatementPosition = .052f;
+        for(LinkedListNode<Statement> s = Statements.Children.First; !(s is null); s = s.Next)
+        {
+            Transform sTform = s.Value.transform;
+            sTform.localPosition = new Vector3(0, -nextStatementPosition, 0);
+            nextStatementPosition += .052f;
+        }
+    }
+
+    public void AcceptFirstStatement(Statement s)
+    {
+        if (s is null)
+        {
+            Debug.Log("Well this shouldn't happen -- attemping to add null first statement to method");
+            return;
+        }
         Transform sTform = s.transform;
         sTform.parent = transform;
-        sTform.localPosition = new Vector3(0, -nextStatementPosition, 0);
+        Statements.AddFirst(s);
+        UpdateStatementPosition();
+    }
+
+    public void AcceptStatement(Statement s)
+    {
+        if(s is null)
+        {
+            Debug.Log("Well this shouldn't happen -- attemping to add null statement to method");
+            return;
+        }
+        Transform sTform = s.transform;
+        sTform.parent = transform;
         Statements.AddNode(s);
-        nextStatementPosition += .052f;
+        UpdateStatementPosition();
     }
 }

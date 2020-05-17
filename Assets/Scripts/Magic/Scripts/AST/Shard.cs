@@ -49,8 +49,8 @@ public class Shard : Node
         InvokeMethod.SetParent(this);
         ChantMethod.SetParent(this);
 
-        InvokeMethod.transform.parent = transform.Find("MethodSpace");
-        ChantMethod.transform.parent = transform.Find("MethodSpace");
+        InvokeMethod.transform.parent = transform.Find("MethodSpace/MethodPane");
+        ChantMethod.transform.parent = transform.Find("MethodSpace/MethodPane");
         InvokeMethod.transform.localPosition = new Vector3(-.511f, .554f, 0f);
         ChantMethod.transform.localPosition = new Vector3(0f, .554f, 0f);
     }
@@ -58,6 +58,11 @@ public class Shard : Node
     public void Move(Vector3 position) //world coords
     {
         transform.Find("Model").position = position;
+    }
+
+    public Vector3 Position()
+    {
+        return transform.Find("Model").position;
     }
 
     public void select()

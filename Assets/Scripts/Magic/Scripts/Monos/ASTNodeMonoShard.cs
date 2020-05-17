@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ASTNodeMonoShard : MonoBehaviour
+public class ASTNodeMonoShard : ASTNodeMono
 {
     //Ritual
     public Shard shard;
     public GameObject InvokePrefab;
     public GameObject ChantPrefab;
+
+    public override Method ContainingMethod()
+    {
+        return null;
+    }
+    public override Statement ContainingStatement()
+    {
+        return null;
+    }
 
     public void Initialize()
     {
@@ -19,7 +28,7 @@ public class ASTNodeMonoShard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(shard == null)
+        if(shard is null)
         {
             Initialize();
         }

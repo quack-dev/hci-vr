@@ -71,7 +71,7 @@ public class Ritual : Node
     {
         if(SelectedShard != null)
         {
-            //SelectedShard.unselect();
+            SelectedShard.unselect();
         }
     }
     //this will happen when coming out of execution
